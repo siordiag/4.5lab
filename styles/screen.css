@@ -1,50 +1,76 @@
 body {
     font-family: Helvetica, sans-serif;
-    color: #EAE8FF;
-    background: #2D3142;
-    padding: 0 40px;
+    background-color: black;
+    color: white;
     text-align: center;
+    padding: 0 60px;
+    letter-spacing: 1px;
 }
 
-nav {
-    margin: 40px auto 0 auto;
-    width: 250px;
-    border-radius: 50px;
-    background: #212431;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    list-style-type: none;
-    margin: 0;
-}
-
-nav ul li a {
-    display: inline-block;
-    padding: 20px;
-    color: #EAE8FF;
-    text-decoration: none;
-    font-size: 1.2em;
+:root {
+    --planet-size: 80px;
+    --sun-size: 250px;
+    --card-bg: #222;
+    --card-hover: #444;
 }
 
 h1 {
-    font-size: 8em;
+    font-size: 4em;
     letter-spacing: -2px;
+    font-weight: bold;
 }
 
-h1 strong {
-    background: rgb(34,193,195);
-    background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+#solar-system {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
 }
 
-img.about {
-    opacity: 0.5;
+.sun-card {
+    grid-row: span 2 / span 2;
 }
+
+.planet-card, .sun-card {
+    background: var(--card-bg);
+    padding: 50px;
+    border-radius: 10px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.planet-card:hover, .sun-card:hover {
+    background: var(--card-hover);
+    transform: scale(1.1);
+}
+
+.planet, .sun {
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.sun {
+    width: var(--sun-size);
+    height: var(--sun-size);
+    background: radial-gradient(circle, yellow, orange);
+}
+
+.planet {
+    width: var(--planet-size);
+    height: var(--planet-size);
+}
+
+.mercury { background: radial-gradient(circle, rgb(124, 124, 124), rgb(231, 230, 227)); }
+
+.venus { background: radial-gradient(circle, rgb(228, 172, 81), rgb(240, 225, 178)); }
+
+.earth { background: radial-gradient(circle, rgb(187, 254, 198), rgb(103, 170, 253));}
+
+.mars {background: radial-gradient(circle, rgb(255, 123, 0), rgb(234, 77, 25));}
+
+.jupiter {background: radial-gradient(circle, rgb(228, 187, 149), rgb(230, 163, 70));}
+
+.saturn { background: radial-gradient(circle, rgb(245, 204, 116), rgb(231, 230, 227));}
+
+.uranus {background: radial-gradient(circle, rgb(160, 217, 250), rgb(219, 246, 255));}
+
+.neptune {background: radial-gradient(circle, rgb(30, 52, 255), rgb(208, 215, 255));}
